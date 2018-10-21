@@ -79,7 +79,4 @@ $(".image2").on("click", function () {
 
   
 
-  // console.log(randomNum)
-    // console.log(totalScore);
-    // debugger;
-  
+ 
