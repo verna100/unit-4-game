@@ -1,32 +1,85 @@
 // These are the variablles I will need for the functions to be calculated
-var wins =0;
+var scorebox= $(".scorebox");
+var numMatch= $("#scoreHold");
+var randomNum;
+var crystal1;
+var crystal2;
+var crystal3;
+var crystal4;
+var wins=0;
 var losses=0;
-var score=0;
-var randomNum
+var totalScore= 0;
 
-// This is a function for when the crystal image is clicked. currently working but alert showing up as NAN
-$(document).ready(function(){
-
-// set this as the number that will generate for the player to add up to
-var randonNum= 50;
-
-//link this function to the html tag that it represents-box
-$("scoreHold").text(randomNum);
+// document.getElementById("client").reset();
+// function reset() {
+  // $("#reset").on("click" ,this.form.reset()
 
 
-
-    var counter =0;
-    $(".image1",).on("click", function(){
-        counter+=10;
-    });
+function restartGame() {
+    randomNum = Math.floor(Math.random() * 100 + 9);
+    numMatch.html(randomNum);   
+    crystal1= Math.floor(Math.random() * 11 + 1);
+    crystal2= Math.floor(Math.random() * 11 + 1);
+    crystal3= Math.floor(Math.random() * 11 + 1);
+    crystal4= Math.floor(Math.random() * 11 + 1);
     
-        if(counter === randomNum){
-            alert("you win!");
-        }
-  
-    
+ }
+ 
+  restartGame();
+
+
+
+// This is a function for when the crystal image is clicked. 
+$(".image1").on("click", function () {
+  totalScore =  totalScore + crystal1;
+    scorebox.html(totalScore);
+    tracker();
 });
 
+$(".image2").on("click", function () {
+    totalScore =  totalScore + crystal2;
+      scorebox.html(totalScore);
+      tracker();
+  });
+
+  $(".image3").on("click", function () {
+    totalScore =  totalScore + crystal3;
+      scorebox.html(totalScore);
+      tracker();
+  });
+
+  $(".image4").on("click", function () {
+    totalScore =  totalScore + crystal4;
+      scorebox.html(totalScore);
+      tracker();
+
+  });
 
 
+  function tracker(){
+    
+      if(totalScore === randomNum){
+            wins++;
+          $("#won").text(wins);
+          alert("You win, refresh page to play again!");
+      } 
+      // I could not figure out how to add a reset/restart feature so I added an alert so that the game player can know to refresh the page to start the game again. Not the best coding skill but a creative one!
+        if 
+          (totalScore > randomNum){
+          losses++
+          $("#loss").text(losses);
+          alert("You lose, refresh page to try again!");
+  
+      } 
 
+
+  }
+
+  tracker()
+
+  
+
+  // console.log(randomNum)
+    // console.log(totalScore);
+    // debugger;
+  
