@@ -60,15 +60,17 @@ $(".image2").on("click", function () {
     
       if(totalScore === randomNum){
             wins++;
-          $("#won").text(wins);
-          alert("You win, refresh page to play again!");
+          $("#won").text("Wins: " + wins);
+          $(".score").text("Your total score is: " + wins);
+          alert("Great work, refresh page to play again!")
       } 
       // I could not figure out how to add a reset/restart feature so I added an alert so that the game player can know to refresh the page to start the game again. Not the best coding skill but a creative one!
         if 
           (totalScore > randomNum){
           losses++
-          $("#loss").text(losses);
-          alert("You lose, refresh page to try again!");
+          $("#loss").text("Losses: " + losses);
+          $(".score").text("Your total score is: " + (losses - 1));
+          alert("Sorry, maybe next time. Refresh page to try again!");
   
       } 
 
